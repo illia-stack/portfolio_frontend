@@ -188,6 +188,7 @@ header {
 }
 
 .navbar {
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -575,6 +576,46 @@ input, textarea {
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* Android - settings */
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #111;
+    margin-top: 10px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+}
 
 
 
