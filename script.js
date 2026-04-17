@@ -80,7 +80,7 @@ function highlightNav() {
 
 
 
-if (nav && navLinks) {
+if (nav) {
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("active");
@@ -128,12 +128,20 @@ if (form) {
   form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    console.log([...new FormData(form)]); // 👈 HIER rein
+    console.log([...new FormData(form)]); 
 
-    fetch("https://illia-stack.wuaze.com/send.php", {
+    fetch("https://portfolio-backend-mr9w.onrender.com/api/contact", {
       method: "POST",
-      body: new FormData(form)
+      headers: {
+        "Content-Type": "application/json"
+      },
+     body: JSON.stringify({
+        name: form.querySelector('[name="name"]').value,
+        email: form.querySelector('[name="email"]').value,
+        message: form.querySelector('[name="message"]').value
+      })
     })
+
     .then(res => {
       if (!res.ok) throw new Error("Network error");
       return res.json();
