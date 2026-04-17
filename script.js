@@ -80,7 +80,7 @@ function highlightNav() {
 
 
 
-if (nav) {
+if (nav && navLinks) {
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
       nav.classList.remove("active");
@@ -127,6 +127,8 @@ const form = document.getElementById("contact-form");
 if (form) {
   form.addEventListener("submit", function(e) {
     e.preventDefault();
+
+    console.log([...new FormData(form)]); // 👈 HIER rein
 
     fetch("https://illia-stack.wuaze.com/send.php", {
       method: "POST",
