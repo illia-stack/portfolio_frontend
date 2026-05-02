@@ -411,6 +411,30 @@ section {
   box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 }
 
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.project-link::after {
+  content: "→";
+  margin-left: 6px;
+  transition: margin 0.3s ease;
+}
+
+.project-link:hover {
+  color: #111;
+}
+
+.project-link:hover::after {
+  margin-left: 12px;
+}
+
 
 
 /* CONTACT */
