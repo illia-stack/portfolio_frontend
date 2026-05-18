@@ -300,13 +300,13 @@ section {
 }
 
 .home .name {
-  font-size: 48px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 
 .home .hero-title {
-  font-size: 22px;
+  font-size: 48px;
   font-weight: 400;
   max-width: 650px;
   margin-bottom: 30px;
