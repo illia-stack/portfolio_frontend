@@ -4,6 +4,89 @@ const revealElements = document.querySelectorAll('.reveal');
 const aboutImage = document.querySelector('.about-image img');
 const projectCards = document.querySelectorAll('.project-card');
 
+const translations = {
+  en: {
+    home: "Home",
+    about: "About",
+    projects: "Projects",
+    contact: "Contact",
+    heroTitle: "Junior e-commerce fullstack",
+    intro: "Hello, I'm",
+    aboutTitle: "About Me",
+    aboutText:
+      "I'm a full-stack web developer specializing in building dynamic e-commerce platforms and interactive web applications...",
+    projectsTitle: "My Projects",
+    contactTitle: "Feel free to reach me out",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "Your email",
+    messagePlaceholder: "Your message",
+    send: "Send"
+  },
+
+  de: {
+    home: "Startseite",
+    about: "Über mich",
+    projects: "Projekte",
+    contact: "Kontakt",
+    heroTitle: "Junior E-Commerce Fullstack",
+    intro: "Hallo, ich bin",
+    aboutTitle: "Über mich",
+    aboutText:
+      "Ich bin Full-Stack Webentwickler mit Fokus auf E-Commerce Plattformen und interaktive Webanwendungen...",
+    projectsTitle: "Meine Projekte",
+    contactTitle: "Kontaktiere mich gerne",
+    namePlaceholder: "Dein Name",
+    emailPlaceholder: "Deine E-Mail",
+    messagePlaceholder: "Deine Nachricht",
+    send: "Senden"
+  }
+};
+
+let currentLang = "en";
+
+function updateLanguage() {
+  const t = translations[currentLang];
+
+  // NAV LINKS
+  document.querySelectorAll(".nav-links a")[0].textContent = t.home;
+  document.querySelectorAll(".nav-links a")[1].textContent = t.about;
+  document.querySelectorAll(".nav-links a")[2].textContent = t.projects;
+  document.querySelectorAll(".nav-links a")[3].textContent = t.contact;
+
+  // HERO
+  document.querySelector(".intro").textContent = t.intro;
+  document.querySelector(".hero-title").textContent = t.heroTitle;
+
+  // ABOUT
+  document.querySelector("#about h2").textContent = t.aboutTitle;
+  document.querySelector(".about-text p").textContent = t.aboutText;
+
+  // PROJECTS
+  document.querySelector("#projects h2").textContent = t.projectsTitle;
+
+  // CONTACT
+  document.querySelector("#contact h2").textContent = t.contactTitle;
+
+  document.querySelector('[name="name"]').placeholder = t.namePlaceholder;
+  document.querySelector('[name="email"]').placeholder = t.emailPlaceholder;
+  document.querySelector('[name="message"]').placeholder = t.messagePlaceholder;
+
+  document.querySelector("#contact-form button").textContent = t.send;
+
+  // Button Label
+  document.getElementById("lang-toggle").textContent =
+    currentLang === "en" ? "DE" : "EN";
+}
+
+const langBtn = document.getElementById("lang-toggle");
+
+if (langBtn) {
+  langBtn.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "de" : "en";
+    updateLanguage();
+  });
+}
+
 
  // Navbar settings (pc, Android)
 const menuToggle = document.querySelector(".menu-toggle");
@@ -160,3 +243,5 @@ if (form) {
     });
   });
 }
+
+updateLanguage();
